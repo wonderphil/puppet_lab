@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
     web01.vm.hostname = "web01"
   
-    web01.vm.network "private_network", ip: "192.168.5.2"
+    web01.vm.network "private_network", ip: "192.168.5.11"
   
   end
   
