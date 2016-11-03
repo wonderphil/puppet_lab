@@ -1,0 +1,13 @@
+[Unit]
+Description=Puppet master unicorn server
+
+[Service]
+WorkingDirectory=/var/lib/puppet
+SyslogIdentifier=puppetmaster-unicorn
+PIDFile=/run/puppet/puppetmaster.pid
+ExecStart=/usr/bin/unicorn -c /etc/puppet/unicorn.rb /usr/share/puppet/ext/rack/config.ru
+ExecStop=/bin/kill -QUIT $MAINPID
+#ExecReload=/bin/kill -USR1 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
